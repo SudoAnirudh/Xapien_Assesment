@@ -1,0 +1,14 @@
+# Q4 Automated Quality Evaluation Dependencies
+torch>=2.0.0
+torchvision
+transformers>=4.40.0
+open_clip_torch
+insightface
+onnxruntime
+scikit-image
+pandas
+scipy
+numpy
+pillow
+einops
+timm

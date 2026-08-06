@@ -1,0 +1,9 @@
+# Q5 Web Demo Dependencies
+gradio>=4.0.0
+torch>=2.0.0
+torchvision
+pillow
+numpy
+pandas
+opencv-python
+requests

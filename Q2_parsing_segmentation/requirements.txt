@@ -1,0 +1,10 @@
+# Q2 Parsing & Segmentation Dependencies
+torch>=2.0.0
+torchvision
+opencv-python
+pillow
+numpy
+rembg>=2.0.50
+onnxruntime
+scikit-image
+requests

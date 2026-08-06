@@ -1,0 +1,11 @@
+# Q3 Try-On Inference Dependencies (Diffusers Pinned)
+torch>=2.0.0
+torchvision
+diffusers>=0.27.0
+transformers>=4.38.0,<4.41.0
+accelerate>=0.28.0
+einops
+pillow
+numpy
+huggingface-hub
+scipy

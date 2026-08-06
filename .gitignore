@@ -1,0 +1,40 @@
+# Python & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter & Colab
+.ipynb_checkpoints/
+.colab/
+
+# Checkpoints, Cache & Intermediate Data
+/checkpoints/
+/cache/
+/outputs/
+/data/
+*.jpg
+*.png
+*.jpeg
+*.json
+*.csv
+!docs/*.json
+!docs/*.csv
+
+# Google Drive Local Mounts
+/gdrive/
+/content/drive/
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Docs
+.docs
