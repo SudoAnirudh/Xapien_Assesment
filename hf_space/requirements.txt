@@ -1,0 +1,14 @@
+torch
+torchvision
+transformers
+diffusers
+accelerate
+gradio>=4.0.0
+rembg
+open_clip_torch
+insightface
+scikit-image
+pandas
+pillow
+jsonschema
+opencv-python-headless

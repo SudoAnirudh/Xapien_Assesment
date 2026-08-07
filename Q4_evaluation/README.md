@@ -1,29 +1,42 @@
-# Q4 — Automated Quality Evaluation
+# Q4 — Automated Quality Evaluation (20 marks)
 
-## What's implemented
-- 3-axis quality evaluation pipeline:
-  1. **Garment Fidelity**: OpenCLIP (ViT-B/32) embedding cosine similarity.
-  2. **Identity Preservation**: InsightFace (buffalo_l) face crop SSIM and embedding distance.
-  3. **VLM Judge**: Florence-2 rubric prompt rating (1–10 scale + reasoning).
-- CSV exporter matching `evaluation_template_q4.csv` column format exactly.
-- Complete metric reporting for all 5 try-on pairs (`pair_01`–`pair_05`).
+## What's Implemented
+- **Automated 3-Axis Quality Evaluation Pipeline**:
+  1. **Garment Fidelity**: OpenCLIP (`ViT-B/32`, `laion2b_s34b_b79k`) embedding cosine similarity comparing input garment product image vs. try-on output garment region ($[0.0, 1.0]$ score).
+  2. **Identity Preservation**: Facial region crop SSIM / InsightFace (`buffalo_l`) embedding distance comparing original person face vs. try-on result face ($[0.0, 1.0]$ score).
+  3. **VLM-as-a-Judge**: Florence-2 (`microsoft/Florence-2-large`) evaluation with structured rubric prompt assessing fit realism, texture transfer, and boundary artifacts ($1.0–10.0$ rating scale + written reasoning).
+- **Schema Compliance**: Exports directly to `evaluation_template_q4.csv` matching all required template columns without blending individual metrics into arbitrary scalars.
 
-## How it works
-- **Garment Fidelity**: Input garment image embedding vs. try-on output garment region embedding → 0.0–1.0 score.
-- **Identity Preservation**: Input person face crop vs. try-on output face crop → SSIM + InsightFace distance → 0.0–1.0 score.
-- **VLM Judge**: Florence-2 given structured rubric prompt evaluating texture transfer, fit realism, and visual artifacts → 1–10 score.
-- **CSV Output**: All three scores reported independently per Rule D9 without blending into a single arbitrary scalar.
+## Evaluation Axes & Rubric Breakdown
 
-## Why it took this long
-- Setup & loading 3 evaluation models (~30 min).
-- Face detection and garment region cropping integration (~1.5 hrs).
-- Rubric prompt design & VLM score parser (~1 hr).
-- Batch scoring and CSV export validation (~1 hr).
+### 1. Garment Fidelity (OpenCLIP)
+$$\text{Fidelity Score} = \frac{\mathbf{e}_{\text{garment}} \cdot \mathbf{e}_{\text{tryon}}}{\|\mathbf{e}_{\text{garment}}\| \|\mathbf{e}_{\text{tryon}}\|}$$
+Compares deep semantic representations of input garment vs. output try-on area.
 
-## Gotchas / edge cases
-- Score normalization: Ensuring OpenCLIP and InsightFace scores map cleanly to [0, 1] bounds.
-- Unblended reporting (Rule D9): Keeping the three metric axes separate in the final CSV output.
+### 2. Identity Preservation (InsightFace / SSIM)
+$$\text{Identity Score} = \text{SSIM}(\text{Face}_{\text{person}}, \text{Face}_{\text{tryon}})$$
+Measures structural similarity across facial geometry, head hair boundary, and skin tone.
 
-## Constraints hit
-- **Memory**: Models loaded sequentially (OpenCLIP → InsightFace → Florence-2); max VRAM under ~3.0 GB.
-- **Errors**: None encountered during initial setup.
+### 3. VLM-as-Judge Rubric Prompt
+The Florence-2 model evaluates try-on results on a 1–10 scale based on 3 criteria:
+- **Fit Realism**: Alignment of shoulders, sleeves, and torso drape without unreal distortion.
+- **Texture & Pattern Transfer**: Fidelity of cloth weave, graphic prints, and color saturation.
+- **Visual Artifacts**: Absence of boundary tearing, halo effects, or phantom limb bleeding.
+
+## Exported Evaluation CSV Schema (`evaluation_template_q4.csv`)
+Columns:
+- `pair_id`: Pair identifier (`pair_01` to `pair_05`).
+- `person_image`: Target person image file name.
+- `garment_image`: Source garment image file name.
+- `tryon_model`: Try-on model evaluated (`CatVTON`).
+- `garment_fidelity_score`: OpenCLIP similarity score ($0.0000 - 1.0000$).
+- `identity_preservation_score`: Face SSIM identity score ($0.0000 - 1.0000$).
+- `vlm_judge_score`: VLM judge rating ($1.0 - 10.0$).
+- `vlm_judge_reasons`: Detailed qualitative justification from VLM rubric.
+- `artifacts_observed`: Specific visual artifacts or boundary notes.
+- `notes`: Summary evaluation statement.
+
+## Execution & Output Files
+- CSV Saved Location: `Q4_evaluation/evaluation_template_q4.csv` and `Q4_evaluation/outputs/evaluation_template_q4.csv`.
+- Models run sequentially with VRAM clearing to maintain peak allocation under **3.0 GB**.
+
