@@ -177,4 +177,4 @@ def build_hf_interface():
 
 if __name__ == "__main__":
     app = build_hf_interface()
-    app.launch()
+    app.launch(show_api=False)

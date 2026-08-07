@@ -1,9 +1,9 @@
+huggingface-hub>=0.25.0
 torch
 torchvision
 transformers
 diffusers
 accelerate
-gradio>=4.0.0
 rembg
 open_clip_torch
 insightface
