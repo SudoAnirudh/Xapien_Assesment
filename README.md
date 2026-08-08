@@ -16,6 +16,21 @@ An end-to-end, open-source AI virtual try-on system designed to run cleanly on f
 
 ---
 
+## 🔗 Google Colab Notebook Links & Quick Links
+
+- 📄 **Final Submission Document**: [SUBMISSION.md](SUBMISSION.md)
+- 🌐 **Live Web Demo (Hugging Face Spaces)**: [virtual-tryon-demo](https://huggingface.co/spaces/anirudhsudheer/virtual-tryon-demo)
+
+| Question | Notebook Module | Colab Link | Folder README |
+|---|---|---|---|
+| **Q1** | VLM Garment & Body Understanding | [Q1 Colab Notebook](https://drive.google.com/file/d/1XXICi7SN1GzaoZ7vkVjvNdxJXnBYzT5j/view?usp=sharing) | [Q1 README](Q1_vlm_understanding/README.md) |
+| **Q2** | Human Parsing & Segmentation | [Q2 Colab Notebook](https://drive.google.com/file/d/1zmFrlAS4Y8YI15LiXM4UVcGlUeZSJPSV/view?usp=sharing) | [Q2 README](Q2_parsing_segmentation/README.md) |
+| **Q3** | End-to-End Try-On Inference | [Q3 Colab Notebook](https://drive.google.com/file/d/1KChJjngeFux80dmG0NWv8bSjwNzMJBjj/view?usp=sharing) | [Q3 README](Q3_tryon_inference/README.md) |
+| **Q4** | Automated Quality Evaluation | [Q4 Colab Notebook](https://drive.google.com/file/d/1W8fAn_AZj6KagohAJcwLZt3SCT4TMNY6/view?usp=sharing) | [Q4 README](Q4_evaluation/README.md) |
+| **Q5** | Interactive Web Demo & Guardrails | [Q5 Colab Notebook](https://drive.google.com/file/d/1U9uNjcf1GL0a1qy14o0pcd3gYVFUQ2Gk/view?usp=sharing) | [Q5 README](Q5_web_demo/README.md) |
+
+---
+
 ## 📁 Repository Structure
 
 ```

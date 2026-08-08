@@ -1,5 +1,7 @@
 # Q1 — VLM Garment & Body Understanding
 
+**Google Colab Notebook**: [Q1 Colab Notebook](https://drive.google.com/file/d/1XXICi7SN1GzaoZ7vkVjvNdxJXnBYzT5j/view?usp=sharing)
+
 ## What's implemented
 - Florence-2-large integration for structured visual feature extraction.
 - Few-shot prompting pipeline targeting JSON schema specifications.

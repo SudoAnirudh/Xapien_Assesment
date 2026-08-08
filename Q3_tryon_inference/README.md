@@ -1,5 +1,7 @@
 # Q3 — End-to-End Try-On Inference (25 marks)
 
+**Google Colab Notebook**: [Q3 Colab Notebook](https://drive.google.com/file/d/1KChJjngeFux80dmG0NWv8bSjwNzMJBjj/view?usp=sharing)
+
 ## What's Implemented
 - **End-to-End Try-On Model**: **CatVTON** (`zhengchong/CatVTON`, open-source diffusion try-on model) selected as the lightest and most Colab-friendly model architecture.
 - **Preprocessing Pipeline Integration**: Direct integration with Q2 outputs (agnostic person images with upper-body masked out + rembg garment cutouts and binary masks).

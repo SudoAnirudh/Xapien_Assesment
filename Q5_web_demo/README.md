@@ -1,5 +1,7 @@
 # Q5 — Mini Try-On Web Demo (20 marks)
 
+**Google Colab Notebook**: [Q5 Colab Notebook](https://drive.google.com/file/d/1U9uNjcf1GL0a1qy14o0pcd3gYVFUQ2Gk/view?usp=sharing)
+
 ## What's Implemented
 - **Unified Interactive Web Application**: Interactive Gradio interface (`q5_app.py`) orchestrating Questions 1 through 4 into a single web pipeline.
 - **Guardrail 1 (Person Presence Verification)**: Detects human subject presence in uploads. Rejects `edge_cases/no_person.jpg` immediately before allocating GPU compute.

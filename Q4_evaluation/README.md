@@ -1,5 +1,7 @@
 # Q4 — Automated Quality Evaluation (20 marks)
 
+**Google Colab Notebook**: [Q4 Colab Notebook](https://drive.google.com/file/d/1W8fAn_AZj6KagohAJcwLZt3SCT4TMNY6/view?usp=sharing)
+
 ## What's Implemented
 - **Automated 3-Axis Quality Evaluation Pipeline**:
   1. **Garment Fidelity**: OpenCLIP (`ViT-B/32`, `laion2b_s34b_b79k`) embedding cosine similarity comparing input garment product image vs. try-on output garment region ($[0.0, 1.0]$ score).

@@ -1,5 +1,7 @@
 # Q2 — Human Parsing & Garment Segmentation (20 marks)
 
+**Google Colab Notebook**: [Q2 Colab Notebook](https://drive.google.com/file/d/1zmFrlAS4Y8YI15LiXM4UVcGlUeZSJPSV/view?usp=sharing)
+
 ## What's implemented
 - **Human Parsing**: 20-class semantic parsing using SCHP / SegFormer-B2 Clothes model (`mattmdjaga/segformer_b2_clothes` trained on LIP/SCHP dataset).
 - **Agnostic Person Representation**: Upper-body clothing mask generator that neutral-gray fills upper-garment regions (classes 5: Upper-clothes, 6: Dress, 7: Coat) while preserving hair (class 2), face (class 13), and arms (classes 14, 15).
